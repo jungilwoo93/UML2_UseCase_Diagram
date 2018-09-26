@@ -1,0 +1,90 @@
+package use_case_diagram;
+
+import org.eclipse.uml2.uml.Model; 
+import org.eclipse.uml2.uml.UseCase;
+parser code {:
+    public void report_error(String message, Object info) {
+        StringBuffer m = new StringBuffer("Error");
+		m.append (info.toString());
+        m.append(" : "+message);
+        System.err.println(m.toString());
+    }
+   
+    public void report_fatal_error(String message, Object info) {
+        report_error(message, info);
+        System.exit(1);
+    }
+
+	private Factory factory;
+	
+	public Model getModel(){
+		return factory.getModel();
+	}
+	
+	public Factory getFactory () {
+		if (factory == null) factory = new Factory ();
+		return factory;
+	}
+	
+:}
+
+terminal 			T_MODEL,T_ACTOR, T_USECASE, T_ASSOCIATION, T_INCLUDE, T_EXTEND;
+terminal String		NAME;
+terminal 			O_BRACE, C_BRACE;
+
+nonterminal			model;
+nonterminal			declarations, declaration;
+nonterminal			actor;
+nonterminal			useCase;
+nonterminal			associations,association,relations,relation;
+nonterminal 		include,extend;
+
+
+model			::= T_MODEL NAME:name {: getFactory().pushModel(name); :} declarations {: getFactory().pop(); :}
+				;
+				
+declarations	::= 
+				|	declarations declaration 
+				;
+				
+declaration		::=	actor
+				|	useCase
+				;
+				
+actor			::=	T_ACTOR NAME:name {: getFactory().pushActor(name); :} O_BRACE associations C_BRACE {: getFactory().pop (); :}
+				;
+			
+associations 	::= 
+				|	associations association
+				;
+			
+association		::=	T_ASSOCIATION NAME:name {: 
+												getFactory().pushUseCase(name); 
+												getFactory().addAssociation(getFactory().getActor(),getFactory().getUseCase());
+												:}
+				;
+				
+useCase			::= T_USECASE NAME:name {: getFactory().getUseCase(); getFactory().addSousUseCase(name); :} O_BRACE relations C_BRACE 
+				;
+				
+relations		::= 
+				|	relations relation
+				;
+				
+relation		::=	include
+				|	extend
+				;
+				
+include			::= T_INCLUDE NAME:name {: 	
+											UseCase from = getFactory().getUseCase();
+											getFactory().pushUseCase(name);
+											UseCase to = getFactory().getUseCase();
+											getFactory().addIncludeUseCase(from,to); 
+											:}
+				;
+				
+extend			::=	T_EXTEND NAME:name {: 	UseCase from = getFactory().getUseCase();
+											getFactory().pushUseCase(name);
+											UseCase to = getFactory().getUseCase();
+											getFactory().addExtendUseCase(to,from); :} 
+				;

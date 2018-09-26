@@ -1,0 +1,374 @@
+===== STDERR =====
+
+===== STDOUT =====
+
+===== Terminals =====
+[0]EOF [1]error [2]T_MODEL [3]T_ACTOR [4]T_USECASE 
+[5]T_ASSOCIATION [6]T_INCLUDE [7]T_EXTEND [8]NAME [9]O_BRACE 
+[10]C_BRACE 
+
+===== Non terminals =====
+[0]model [1]declarations [2]declaration [3]actor [4]useCase 
+[5]associations [6]association [7]relations [8]relation [9]include 
+[10]extend [11]NT$0 [12]NT$1 [13]NT$2 
+
+===== Productions =====
+[0] NT$0 ::= 
+[1] model ::= T_MODEL NAME NT$0 declarations 
+[2] $START ::= model EOF 
+[3] declarations ::= 
+[4] declarations ::= declarations declaration 
+[5] declaration ::= actor 
+[6] declaration ::= useCase 
+[7] NT$1 ::= 
+[8] actor ::= T_ACTOR NAME NT$1 O_BRACE associations C_BRACE 
+[9] associations ::= 
+[10] associations ::= associations association 
+[11] association ::= T_ASSOCIATION NAME 
+[12] NT$2 ::= 
+[13] useCase ::= T_USECASE NAME NT$2 O_BRACE relations C_BRACE 
+[14] relations ::= 
+[15] relations ::= relations relation 
+[16] relation ::= include 
+[17] relation ::= extend 
+[18] include ::= T_INCLUDE NAME 
+[19] extend ::= T_EXTEND NAME 
+===== Viable Prefix Recognizer =====
+START lalr_state [0]: {
+  [$START ::= (*) model EOF , {EOF }]
+  [model ::= (*) T_MODEL NAME NT$0 declarations , {EOF }]
+}
+transition on T_MODEL to state [2]
+transition on model to state [1]
+
+-------------------
+lalr_state [1]: {
+  [$START ::= model (*) EOF , {EOF }]
+}
+transition on EOF to state [31]
+
+-------------------
+lalr_state [2]: {
+  [model ::= T_MODEL (*) NAME NT$0 declarations , {EOF }]
+}
+transition on NAME to state [3]
+
+-------------------
+lalr_state [3]: {
+  [model ::= T_MODEL NAME (*) NT$0 declarations , {EOF }]
+  [NT$0 ::= (*) , {EOF T_ACTOR T_USECASE }]
+}
+transition on NT$0 to state [4]
+
+-------------------
+lalr_state [4]: {
+  [model ::= T_MODEL NAME NT$0 (*) declarations , {EOF }]
+  [declarations ::= (*) declarations declaration , {EOF T_ACTOR T_USECASE }]
+  [declarations ::= (*) , {EOF T_ACTOR T_USECASE }]
+}
+transition on declarations to state [5]
+
+-------------------
+lalr_state [5]: {
+  [actor ::= (*) T_ACTOR NAME NT$1 O_BRACE associations C_BRACE , {EOF T_ACTOR T_USECASE }]
+  [declaration ::= (*) actor , {EOF T_ACTOR T_USECASE }]
+  [useCase ::= (*) T_USECASE NAME NT$2 O_BRACE relations C_BRACE , {EOF T_ACTOR T_USECASE }]
+  [model ::= T_MODEL NAME NT$0 declarations (*) , {EOF }]
+  [declarations ::= declarations (*) declaration , {EOF T_ACTOR T_USECASE }]
+  [declaration ::= (*) useCase , {EOF T_ACTOR T_USECASE }]
+}
+transition on declaration to state [10]
+transition on useCase to state [9]
+transition on T_ACTOR to state [8]
+transition on actor to state [7]
+transition on T_USECASE to state [6]
+
+-------------------
+lalr_state [6]: {
+  [useCase ::= T_USECASE (*) NAME NT$2 O_BRACE relations C_BRACE , {EOF T_ACTOR T_USECASE }]
+}
+transition on NAME to state [19]
+
+-------------------
+lalr_state [7]: {
+  [declaration ::= actor (*) , {EOF T_ACTOR T_USECASE }]
+}
+
+-------------------
+lalr_state [8]: {
+  [actor ::= T_ACTOR (*) NAME NT$1 O_BRACE associations C_BRACE , {EOF T_ACTOR T_USECASE }]
+}
+transition on NAME to state [11]
+
+-------------------
+lalr_state [9]: {
+  [declaration ::= useCase (*) , {EOF T_ACTOR T_USECASE }]
+}
+
+-------------------
+lalr_state [10]: {
+  [declarations ::= declarations declaration (*) , {EOF T_ACTOR T_USECASE }]
+}
+
+-------------------
+lalr_state [11]: {
+  [NT$1 ::= (*) , {O_BRACE }]
+  [actor ::= T_ACTOR NAME (*) NT$1 O_BRACE associations C_BRACE , {EOF T_ACTOR T_USECASE }]
+}
+transition on NT$1 to state [12]
+
+-------------------
+lalr_state [12]: {
+  [actor ::= T_ACTOR NAME NT$1 (*) O_BRACE associations C_BRACE , {EOF T_ACTOR T_USECASE }]
+}
+transition on O_BRACE to state [13]
+
+-------------------
+lalr_state [13]: {
+  [associations ::= (*) associations association , {T_ASSOCIATION C_BRACE }]
+  [associations ::= (*) , {T_ASSOCIATION C_BRACE }]
+  [actor ::= T_ACTOR NAME NT$1 O_BRACE (*) associations C_BRACE , {EOF T_ACTOR T_USECASE }]
+}
+transition on associations to state [14]
+
+-------------------
+lalr_state [14]: {
+  [associations ::= associations (*) association , {T_ASSOCIATION C_BRACE }]
+  [actor ::= T_ACTOR NAME NT$1 O_BRACE associations (*) C_BRACE , {EOF T_ACTOR T_USECASE }]
+  [association ::= (*) T_ASSOCIATION NAME , {T_ASSOCIATION C_BRACE }]
+}
+transition on T_ASSOCIATION to state [17]
+transition on C_BRACE to state [16]
+transition on association to state [15]
+
+-------------------
+lalr_state [15]: {
+  [associations ::= associations association (*) , {T_ASSOCIATION C_BRACE }]
+}
+
+-------------------
+lalr_state [16]: {
+  [actor ::= T_ACTOR NAME NT$1 O_BRACE associations C_BRACE (*) , {EOF T_ACTOR T_USECASE }]
+}
+
+-------------------
+lalr_state [17]: {
+  [association ::= T_ASSOCIATION (*) NAME , {T_ASSOCIATION C_BRACE }]
+}
+transition on NAME to state [18]
+
+-------------------
+lalr_state [18]: {
+  [association ::= T_ASSOCIATION NAME (*) , {T_ASSOCIATION C_BRACE }]
+}
+
+-------------------
+lalr_state [19]: {
+  [useCase ::= T_USECASE NAME (*) NT$2 O_BRACE relations C_BRACE , {EOF T_ACTOR T_USECASE }]
+  [NT$2 ::= (*) , {O_BRACE }]
+}
+transition on NT$2 to state [20]
+
+-------------------
+lalr_state [20]: {
+  [useCase ::= T_USECASE NAME NT$2 (*) O_BRACE relations C_BRACE , {EOF T_ACTOR T_USECASE }]
+}
+transition on O_BRACE to state [21]
+
+-------------------
+lalr_state [21]: {
+  [relations ::= (*) relations relation , {T_INCLUDE T_EXTEND C_BRACE }]
+  [relations ::= (*) , {T_INCLUDE T_EXTEND C_BRACE }]
+  [useCase ::= T_USECASE NAME NT$2 O_BRACE (*) relations C_BRACE , {EOF T_ACTOR T_USECASE }]
+}
+transition on relations to state [22]
+
+-------------------
+lalr_state [22]: {
+  [extend ::= (*) T_EXTEND NAME , {T_INCLUDE T_EXTEND C_BRACE }]
+  [relation ::= (*) include , {T_INCLUDE T_EXTEND C_BRACE }]
+  [include ::= (*) T_INCLUDE NAME , {T_INCLUDE T_EXTEND C_BRACE }]
+  [relations ::= relations (*) relation , {T_INCLUDE T_EXTEND C_BRACE }]
+  [relation ::= (*) extend , {T_INCLUDE T_EXTEND C_BRACE }]
+  [useCase ::= T_USECASE NAME NT$2 O_BRACE relations (*) C_BRACE , {EOF T_ACTOR T_USECASE }]
+}
+transition on extend to state [28]
+transition on relation to state [27]
+transition on C_BRACE to state [26]
+transition on T_EXTEND to state [25]
+transition on T_INCLUDE to state [24]
+transition on include to state [23]
+
+-------------------
+lalr_state [23]: {
+  [relation ::= include (*) , {T_INCLUDE T_EXTEND C_BRACE }]
+}
+
+-------------------
+lalr_state [24]: {
+  [include ::= T_INCLUDE (*) NAME , {T_INCLUDE T_EXTEND C_BRACE }]
+}
+transition on NAME to state [30]
+
+-------------------
+lalr_state [25]: {
+  [extend ::= T_EXTEND (*) NAME , {T_INCLUDE T_EXTEND C_BRACE }]
+}
+transition on NAME to state [29]
+
+-------------------
+lalr_state [26]: {
+  [useCase ::= T_USECASE NAME NT$2 O_BRACE relations C_BRACE (*) , {EOF T_ACTOR T_USECASE }]
+}
+
+-------------------
+lalr_state [27]: {
+  [relations ::= relations relation (*) , {T_INCLUDE T_EXTEND C_BRACE }]
+}
+
+-------------------
+lalr_state [28]: {
+  [relation ::= extend (*) , {T_INCLUDE T_EXTEND C_BRACE }]
+}
+
+-------------------
+lalr_state [29]: {
+  [extend ::= T_EXTEND NAME (*) , {T_INCLUDE T_EXTEND C_BRACE }]
+}
+
+-------------------
+lalr_state [30]: {
+  [include ::= T_INCLUDE NAME (*) , {T_INCLUDE T_EXTEND C_BRACE }]
+}
+
+-------------------
+lalr_state [31]: {
+  [$START ::= model EOF (*) , {EOF }]
+}
+
+-------------------
+-------- ACTION_TABLE --------
+From state #0
+ [term 2:SHIFT(to state 2)]
+From state #1
+ [term 0:SHIFT(to state 31)]
+From state #2
+ [term 8:SHIFT(to state 3)]
+From state #3
+ [term 0:REDUCE(with prod 0)] [term 3:REDUCE(with prod 0)]
+ [term 4:REDUCE(with prod 0)]
+From state #4
+ [term 0:REDUCE(with prod 3)] [term 3:REDUCE(with prod 3)]
+ [term 4:REDUCE(with prod 3)]
+From state #5
+ [term 0:REDUCE(with prod 1)] [term 3:SHIFT(to state 8)]
+ [term 4:SHIFT(to state 6)]
+From state #6
+ [term 8:SHIFT(to state 19)]
+From state #7
+ [term 0:REDUCE(with prod 5)] [term 3:REDUCE(with prod 5)]
+ [term 4:REDUCE(with prod 5)]
+From state #8
+ [term 8:SHIFT(to state 11)]
+From state #9
+ [term 0:REDUCE(with prod 6)] [term 3:REDUCE(with prod 6)]
+ [term 4:REDUCE(with prod 6)]
+From state #10
+ [term 0:REDUCE(with prod 4)] [term 3:REDUCE(with prod 4)]
+ [term 4:REDUCE(with prod 4)]
+From state #11
+ [term 9:REDUCE(with prod 7)]
+From state #12
+ [term 9:SHIFT(to state 13)]
+From state #13
+ [term 5:REDUCE(with prod 9)] [term 10:REDUCE(with prod 9)]
+From state #14
+ [term 5:SHIFT(to state 17)] [term 10:SHIFT(to state 16)]
+From state #15
+ [term 5:REDUCE(with prod 10)] [term 10:REDUCE(with prod 10)]
+From state #16
+ [term 0:REDUCE(with prod 8)] [term 3:REDUCE(with prod 8)]
+ [term 4:REDUCE(with prod 8)]
+From state #17
+ [term 8:SHIFT(to state 18)]
+From state #18
+ [term 5:REDUCE(with prod 11)] [term 10:REDUCE(with prod 11)]
+From state #19
+ [term 9:REDUCE(with prod 12)]
+From state #20
+ [term 9:SHIFT(to state 21)]
+From state #21
+ [term 6:REDUCE(with prod 14)] [term 7:REDUCE(with prod 14)]
+ [term 10:REDUCE(with prod 14)]
+From state #22
+ [term 6:SHIFT(to state 24)] [term 7:SHIFT(to state 25)]
+ [term 10:SHIFT(to state 26)]
+From state #23
+ [term 6:REDUCE(with prod 16)] [term 7:REDUCE(with prod 16)]
+ [term 10:REDUCE(with prod 16)]
+From state #24
+ [term 8:SHIFT(to state 30)]
+From state #25
+ [term 8:SHIFT(to state 29)]
+From state #26
+ [term 0:REDUCE(with prod 13)] [term 3:REDUCE(with prod 13)]
+ [term 4:REDUCE(with prod 13)]
+From state #27
+ [term 6:REDUCE(with prod 15)] [term 7:REDUCE(with prod 15)]
+ [term 10:REDUCE(with prod 15)]
+From state #28
+ [term 6:REDUCE(with prod 17)] [term 7:REDUCE(with prod 17)]
+ [term 10:REDUCE(with prod 17)]
+From state #29
+ [term 6:REDUCE(with prod 19)] [term 7:REDUCE(with prod 19)]
+ [term 10:REDUCE(with prod 19)]
+From state #30
+ [term 6:REDUCE(with prod 18)] [term 7:REDUCE(with prod 18)]
+ [term 10:REDUCE(with prod 18)]
+From state #31
+ [term 0:REDUCE(with prod 2)]
+------------------------------
+-------- REDUCE_TABLE --------
+From state #0
+ [non term 0->state 1]
+From state #1
+From state #2
+From state #3
+ [non term 11->state 4]
+From state #4
+ [non term 1->state 5]
+From state #5
+ [non term 2->state 10] [non term 3->state 7] [non term 4->state 9]
+From state #6
+From state #7
+From state #8
+From state #9
+From state #10
+From state #11
+ [non term 12->state 12]
+From state #12
+From state #13
+ [non term 5->state 14]
+From state #14
+ [non term 6->state 15]
+From state #15
+From state #16
+From state #17
+From state #18
+From state #19
+ [non term 13->state 20]
+From state #20
+From state #21
+ [non term 7->state 22]
+From state #22
+ [non term 8->state 27] [non term 9->state 23] [non term 10->state 28]
+From state #23
+From state #24
+From state #25
+From state #26
+From state #27
+From state #28
+From state #29
+From state #30
+From state #31
+-----------------------------

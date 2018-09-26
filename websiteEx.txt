@@ -1,0 +1,24 @@
+model web
+actor Siteuser {
+	association Searchdorcsfulltext
+	association Login
+	association Uploaddocs
+}
+
+actor Webmaster {
+	association Uploaddocs
+	association Adduser
+}
+
+useCase Searchdorcsfulltext {
+	include Downloaddocs
+	include Previewdoc
+}
+
+useCase Uploaddocs {
+	extend Managefolders
+}
+
+useCase Adduser {
+	extend Addcompany
+}

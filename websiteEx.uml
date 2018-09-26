@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_2kaRAMDtEein24JZMlYNYw" name="web">
+  <packagedElement xmi:type="uml:Actor" xmi:id="_2kbfIMDtEein24JZMlYNYw" name="Siteuser"/>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_2kbfIcDtEein24JZMlYNYw" name="Searchdorcsfulltext"/>
+  <packagedElement xmi:type="uml:Association" xmi:id="_2kbfIsDtEein24JZMlYNYw" memberEnd="_2kbfI8DtEein24JZMlYNYw _2kbfJsDtEein24JZMlYNYw">
+    <ownedEnd xmi:id="_2kbfI8DtEein24JZMlYNYw" name="Searchdorcsfulltext" type="_2kbfIMDtEein24JZMlYNYw" association="_2kbfIsDtEein24JZMlYNYw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_2kbfJMDtEein24JZMlYNYw"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_2kbfJcDtEein24JZMlYNYw" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_2kbfJsDtEein24JZMlYNYw" name="Siteuser" type="_2kbfIcDtEein24JZMlYNYw" association="_2kbfIsDtEein24JZMlYNYw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_2kbfJ8DtEein24JZMlYNYw"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_2kbfKMDtEein24JZMlYNYw" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_2kbfKcDtEein24JZMlYNYw" name="Login"/>
+  <packagedElement xmi:type="uml:Association" xmi:id="_2kbfKsDtEein24JZMlYNYw" memberEnd="_2kcGMMDtEein24JZMlYNYw _2kcGM8DtEein24JZMlYNYw">
+    <ownedEnd xmi:id="_2kcGMMDtEein24JZMlYNYw" name="Login" type="_2kbfIMDtEein24JZMlYNYw" association="_2kbfKsDtEein24JZMlYNYw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_2kcGMcDtEein24JZMlYNYw"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_2kcGMsDtEein24JZMlYNYw" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_2kcGM8DtEein24JZMlYNYw" name="Siteuser" type="_2kbfKcDtEein24JZMlYNYw" association="_2kbfKsDtEein24JZMlYNYw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_2kcGNMDtEein24JZMlYNYw"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_2kcGNcDtEein24JZMlYNYw" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_2kcGNsDtEein24JZMlYNYw" name="Uploaddocs"/>
+  <packagedElement xmi:type="uml:Association" xmi:id="_2kcGN8DtEein24JZMlYNYw" memberEnd="_2kcGOMDtEein24JZMlYNYw _2kcGO8DtEein24JZMlYNYw">
+    <ownedEnd xmi:id="_2kcGOMDtEein24JZMlYNYw" name="Uploaddocs" type="_2kbfIMDtEein24JZMlYNYw" association="_2kcGN8DtEein24JZMlYNYw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_2kcGOcDtEein24JZMlYNYw"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_2kcGOsDtEein24JZMlYNYw" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_2kcGO8DtEein24JZMlYNYw" name="Siteuser" type="_2kcGNsDtEein24JZMlYNYw" association="_2kcGN8DtEein24JZMlYNYw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_2kcGPMDtEein24JZMlYNYw"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_2kcGPcDtEein24JZMlYNYw" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Actor" xmi:id="_2kcGPsDtEein24JZMlYNYw" name="Webmaster"/>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_2kcGP8DtEein24JZMlYNYw" name="Uploaddocs"/>
+  <packagedElement xmi:type="uml:Association" xmi:id="_2kcGQMDtEein24JZMlYNYw" memberEnd="_2kcGQcDtEein24JZMlYNYw _2kctQsDtEein24JZMlYNYw">
+    <ownedEnd xmi:id="_2kcGQcDtEein24JZMlYNYw" name="Uploaddocs" type="_2kcGPsDtEein24JZMlYNYw" association="_2kcGQMDtEein24JZMlYNYw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_2kctQMDtEein24JZMlYNYw"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_2kctQcDtEein24JZMlYNYw" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_2kctQsDtEein24JZMlYNYw" name="Webmaster" type="_2kcGP8DtEein24JZMlYNYw" association="_2kcGQMDtEein24JZMlYNYw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_2kctQ8DtEein24JZMlYNYw"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_2kctRMDtEein24JZMlYNYw" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_2kctRcDtEein24JZMlYNYw" name="Adduser"/>
+  <packagedElement xmi:type="uml:Association" xmi:id="_2kctRsDtEein24JZMlYNYw" memberEnd="_2kctR8DtEein24JZMlYNYw _2kctSsDtEein24JZMlYNYw">
+    <ownedEnd xmi:id="_2kctR8DtEein24JZMlYNYw" name="Adduser" type="_2kcGPsDtEein24JZMlYNYw" association="_2kctRsDtEein24JZMlYNYw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_2kctSMDtEein24JZMlYNYw"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_2kctScDtEein24JZMlYNYw" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_2kctSsDtEein24JZMlYNYw" name="Webmaster" type="_2kctRcDtEein24JZMlYNYw" association="_2kctRsDtEein24JZMlYNYw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_2kctS8DtEein24JZMlYNYw"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_2kctTMDtEein24JZMlYNYw" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_2kctTcDtEein24JZMlYNYw" name="Downloaddocs">
+    <include xmi:id="_2kctTsDtEein24JZMlYNYw" name="Adduser" addition="_2kctRcDtEein24JZMlYNYw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_2kctT8DtEein24JZMlYNYw" name="Previewdoc">
+    <extend xmi:id="_2kctUMDtEein24JZMlYNYw" name="Managefolders" extendedCase="_2kctUsDtEein24JZMlYNYw"/>
+    <include xmi:id="_2kctUcDtEein24JZMlYNYw" name="Downloaddocs" addition="_2kctTcDtEein24JZMlYNYw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_2kctUsDtEein24JZMlYNYw" name="Managefolders">
+    <extend xmi:id="_2kctU8DtEein24JZMlYNYw" name="Addcompany" extendedCase="_2kctVMDtEein24JZMlYNYw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_2kctVMDtEein24JZMlYNYw" name="Addcompany"/>
+</uml:Model>
